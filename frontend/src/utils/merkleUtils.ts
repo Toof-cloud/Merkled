@@ -1,9 +1,15 @@
 import { MerkleTree } from 'merkletreejs';
+import { Buffer } from 'buffer';
 import SHA256 from 'crypto-js/sha256';
 import CryptoJS from 'crypto-js';
 import { IntegrityManifest, FileHash, VerificationResult } from './types';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
+
+// Ensure Buffer is available for merkletreejs in the browser/extension context
+if (typeof (globalThis as any).Buffer === 'undefined') {
+  (globalThis as any).Buffer = Buffer;
+}
 
 //this is prompted
 /**

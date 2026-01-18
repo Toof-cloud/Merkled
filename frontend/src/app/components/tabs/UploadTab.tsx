@@ -110,6 +110,13 @@ export function UploadTab({ onSaveFile }: UploadTabProps) {
       setProgress(100);
       setMerkleRoot(root);
       setManifest(newManifest);
+
+      // Print a simple success message for visibility outside the toast
+      console.log("Merkle tree generated successfully", {
+        fileCount: fileHashes.length,
+        merkleRoot: root,
+      });
+
       toast.success("Merkle Root generated successfully");
       
     } catch (error) {
